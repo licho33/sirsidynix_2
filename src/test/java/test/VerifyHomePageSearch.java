@@ -10,7 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import pages.HomePage;
 import pages.SearchResultPage;
 
-public class Verify_HomePageSearch {
+public class VerifyHomePageSearch {
 
 
 	String textToSearch = "cosugi 2016";
