@@ -1,6 +1,8 @@
 package test;
 
 import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import org.openqa.selenium.WebDriver;
@@ -10,27 +12,37 @@ import pages.SearchResultPage;
 
 public class Verify_HomePageSearch {
 
-	
-	private final String HOME_PAGE = "http://www.sirsidynix.com/";
 
 	String textToSearch = "cosugi 2016";
 	
 	int nroItemBusqueda;
+	
+	WebDriver driver;
 
 	
+	@BeforeMethod
+	public void BeforeMethod()
+	{
+		driver = new FirefoxDriver();
+	}
+	
+	@AfterMethod
+	public void AfterMethod()
+	{
+		driver.quit();
+	}
+
 	@Test
 	public void verifySearchResultURL()
 	{
 		
 		String expectedUrl = "http://www.sirsidynix.com/blog/2016/05/09/your-cosugi-compendium-everything-you-need-to-know-about";
-		
-		WebDriver driver = new FirefoxDriver();
 
 		HomePage homepage = new HomePage(driver);
 		
 		SearchResultPage searchResultPage = new SearchResultPage(driver);
 		
-		homepage.goToHomePage(HOME_PAGE);
+		homepage.goToHomePage();
 		
 		homepage.typeTextToSearch(textToSearch);
 		
@@ -41,9 +53,6 @@ public class Verify_HomePageSearch {
 		String urlSecondResult = searchResultPage.secondResultUrl();
 		
 		Assert.assertEquals(urlSecondResult, expectedUrl);
-		
-		Assert.assertTrue(true, "The URL is the expected");
-		Assert.assertFalse(false, "The URL isn't the expected");
 		
 		
 				

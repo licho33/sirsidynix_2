@@ -31,14 +31,8 @@ public class SearchResultPage {
 	
 	public void clickOnSecondResult()
 	{
-//		I tried to get the list and the second iten on it. But I was learning that there's a problem with it and not always work.
-//		But i think there is a problem with selenium and the class=search-results node-results
-//		driver.findElements(By.className("search-results")).get(2).click();
-		
-		
-//		I will use, for now, this 
+
 		driver.findElements(By.xpath("//*[@id='search-page-results']/ol/li/*")).get(2).click();
-		
 		
 	}
 	

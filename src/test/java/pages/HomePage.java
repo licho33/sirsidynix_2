@@ -3,10 +3,11 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
 
+public class HomePage {
 	
-	
+	private final String HOME_PAGE = "http://www.sirsidynix.com/";
+
 	WebDriver driver;
 
 
@@ -15,17 +16,14 @@ public class HomePage {
 		this.driver = driver;
 	}
 	
-	
-	public void goToHomePage(String homePage) 
+	public void goToHomePage() 
 	{
-		driver.get(homePage);
+		driver.get(HOME_PAGE);
 	}
 	
 	public void typeTextToSearch(String textToSearch)
 	{
-	
 		driver.findElement(By.name("search_block_form")).sendKeys(textToSearch);
-		
 	}
 	
 	public void clickSearchButton()
